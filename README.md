@@ -25,7 +25,7 @@ install.packages(c("shiny", "data.table", "ggplot2"))
 # + other dependencies used in your project
 
 # run
-shiny::runApp("app")
+shiny::runApp()
 
 
 
