@@ -24,8 +24,13 @@ They are publicly available on Zenodo at:
 install.packages(c("shiny", "data.table", "ggplot2"))
 # + other dependencies used in your project
 
-# run
-shiny::runApp()
+## Run SNPopt
+
+```r
+library(shiny)
+shiny::runApp("app")
+
+
 
 
 
