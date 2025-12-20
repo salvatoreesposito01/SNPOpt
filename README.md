@@ -1,5 +1,5 @@
 
-# SNPopt (SNPoptimizer)
+# SNPoptimizer (SNPopt) 
 
 A tool to choose a minimal subset of SNP to discriminate samples. SNPopt is an R/Shiny application that uses a Genetic Algorithm (GA) to select a minimal subset of SNPs able to maximally discriminate samples in large genotypic matrices (e.g., for cultivar identification, panel design, and downstream assay development).
 
