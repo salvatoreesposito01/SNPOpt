@@ -34,8 +34,3 @@ source("run.R")
 If you keep the app inside a subfolder (e.g. app/), run:
 
 shiny::runApp("app")
-
-
-
-
-
