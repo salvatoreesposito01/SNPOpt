@@ -25,7 +25,7 @@ used in the manuscript are not stored directly in this repository. They are publ
 ### 1) Download the repository
 Clone or download this repository and open the project folder.
 
-### 2) Install dependencies
+### 2) Install dependencies and run
 ```r
 source("install.R")
 
