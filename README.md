@@ -12,9 +12,7 @@ A tool to choose a minimal subset of SNP to discriminate samples. SNPopt is an R
 ## Demo and benchmark datasets
 
 Due to size constraints, full HapMap (HMP) benchmark datasets
-used in the manuscript are not stored directly in this repository.
-
-They are publicly available on Zenodo at:
+used in the manuscript are not stored directly in this repository. They are publicly available on Zenodo at:
 **10.5281/zenodo.17975237**
 
 ## Run locally
@@ -31,7 +29,6 @@ Clone or download this repository and open the project folder.
 ```r
 source("install.R")
 
-### 3) Run dependencies**
 source("run.R")
 
 If you keep the app inside a subfolder (e.g. app/), run:
