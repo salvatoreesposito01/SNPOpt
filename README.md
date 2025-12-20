@@ -17,17 +17,25 @@ used in the manuscript are not stored directly in this repository.
 They are publicly available on Zenodo at:
 **10.5281/zenodo.17975237**
 
-## Installation
-### Option A — Run locally (recommended)
-```r
-# install dependencies
-install.packages(c("shiny", "data.table", "ggplot2"))
-# + other dependencies used in your project
+## Run locally
 
-## Run SNPopt
+### Requirements
+- R (>= 4.2)  
+- (Recommended) RStudio  
+- On Windows: Rtools may be required for some packages.
 
+### 1) Download the repository
+Clone or download this repository and open the project folder.
+
+### 2) Install dependencies
 ```r
-library(shiny)
+source("install.R")
+
+### 3) Run dependencies**
+source("run.R")
+
+If you keep the app inside a subfolder (e.g. app/), run:
+
 shiny::runApp("app")
 
 
