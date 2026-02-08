@@ -1,36 +1,91 @@
+# SNPoptimizer
 
-# SNPOptimizer (SNPOpt) 
+SNPoptimizer is a Shiny app to discover and evaluate minimal SNP panels for genotype discrimination.
 
-A tool to choose a minimal subset of SNP to discriminate samples. SNPopt is an R/Shiny application that uses a Genetic Algorithm (GA) to select a minimal subset of SNPs able to maximally discriminate samples in large genotypic matrices (e.g., for cultivar identification, panel design, and downstream assay development).
+## Key Features
 
-## Key features
-- GA-based SNP panel optimization to maximize sample discrimination (e.g., uniqueness / diversity metrics).
-- Interactive Shiny interface to explore results, duplicates, and discriminatory power.
-- Optional second-round optimization on unresolved duplicates to add extra SNPs and obtain a fully discriminant final matrix.
-- Export utilities (selected SNP list, final genotype matrix, duplicated sample list, summary reports).
+- **Discovery mode** for selecting a minimal informative SNP set.
+- **Two optimizers**:
+  - `Hybrid (greedy + local search)` (usually faster)
+  - `GA` (genetic algorithm)
+- **Optional additional run** on unresolved duplicate sample groups.
+- **Evaluation mode** for checking a user-provided SNP list (`CHR`, `POS`).
+- **Post-discovery flanking export** from reference FASTA (`.fa`, `.fasta`, `.fa.gz`).
+- **Primer3 export** generation.
+- **Robust chromosome-name matching** across common naming styles (e.g. `1`, `chr1`, `SL4.0ch01`).
+- **Skipped-SNP diagnostics** during flanking extraction with downloadable report.
 
-## Demo and benchmark datasets
+## Input Support
 
-Due to size constraints, full HapMap (HMP) benchmark datasets
-used in the manuscript are not stored directly in this repository. They are publicly available on Zenodo at:
-**10.5281/zenodo.17975237**
+- **HapMap** (`.txt`, `.tsv`, `.hmp`)
+- **VCF** (`.vcf`, `.vcf.gz`) with biallelic SNPs and `GT`
 
-## Run locally
+## Requirements
 
-### Requirements
-- R (>= 4.2)  
-- (Recommended) RStudio  
-- On Windows: Rtools may be required for some packages.
+R packages:
 
-### 1) Download the repository
-Clone or download this repository and open the project folder.
+- `shiny`
+- `GA`
+- `data.table`
+- `ggplot2`
 
-### 2) Install dependencies and run
+Optional (recommended for large FASTA):
+
+- `samtools` (for `faidx`-based fast extraction)
+
+## Run the App
+
+From the project directory:
+
 ```r
-source("install.R")
+shiny::runApp()
+```
 
+or:
+
+```r
 source("run.R")
+```
 
-If you keep the app inside a subfolder (e.g. app/), run:
+Upload limit is configured to **1 GB**.
 
-shiny::runApp("app")
+## Discovery Outputs
+
+- Discovery KPI summary
+- SNP discrimination curve
+- Selected SNP table
+- Duplicate sample groups
+- Downloads:
+  - selected SNP metadata
+  - selected genotype matrix
+  - discovery summary
+  - curve plot
+  - duplicate sample list
+
+## Flanking / Primer3 Outputs
+
+After Discovery:
+
+- `Download flanking FASTA`
+- `Download Primer3 file`
+- `Download skipped SNPs` (TSV with reasons, e.g. unresolved chromosome, out-of-range position)
+
+## Notes for Manuscripts
+
+- `GA` mode is available for GA-based reporting.
+- `Hybrid` mode is a practical faster alternative on many datasets.
+- Report the optimizer used for each analysis.
+
+## Project Files
+
+- `app.R`
+- `ui.R`
+- `server.R`
+- `run.R`
+- `install.R`
+- `MANUALE_SNPoptimizer.md`
+- `MANUALE_SNPoptimizer.pdf`
+
+## License
+
+See `LICENSE` in the repository root.
