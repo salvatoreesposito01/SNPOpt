@@ -35,16 +35,16 @@ Optional (recommended for large FASTA):
 
 ## Run the App
 
-From the project directory:
+From the repository root:
 
 ```r
-shiny::runApp()
+shiny::runApp("app")
 ```
 
 or:
 
 ```r
-source("run.R")
+source("app/run.R")
 ```
 
 Upload limit is configured to **1 GB**.
@@ -75,6 +75,13 @@ After Discovery:
 - `GA` mode is available for GA-based reporting.
 - `Hybrid` mode is a practical faster alternative on many datasets.
 - Report the optimizer used for each analysis.
+
+
+## Citation
+
+If you use SNPoptimizer, please cite the associated manuscript and this software repository:
+
+Esposito, S. (2026). Molecular Breeding
 
 ## Project Files
 
